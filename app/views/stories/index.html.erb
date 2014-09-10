@@ -1,0 +1,35 @@
+<h1>Listing stories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>User</th>
+      <th>Description</th>
+      <th>Published on</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stories.each do |story| %>
+      <tr>
+        <td><%= story.url %></td>
+        <td><%= story.title %></td>
+        <td><%= story.author %></td>
+        <td><%= story.user.to_s %></td>
+        <td><%= story.description %></td>
+        <td><%= story.published_on %></td>
+        <td><%= link_to 'Show', story %></td>
+        <td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Story', new_story_path %>

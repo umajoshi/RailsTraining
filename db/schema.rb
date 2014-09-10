@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910173718) do
+ActiveRecord::Schema.define(version: 20140910184331) do
+
+  create_table "stories", force: true do |t|
+    t.text    "url"
+    t.string  "title"
+    t.string  "author"
+    t.integer "user_id"
+    t.text    "description"
+    t.date    "published_on"
+  end
+
+  add_index "stories", ["user_id"], name: "index_stories_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

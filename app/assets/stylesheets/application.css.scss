@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+header .navbar-inverse{
+	background: pink;
+	color: #0F0;
+	a{
+	color: #000;
+	}
+}
+
+
