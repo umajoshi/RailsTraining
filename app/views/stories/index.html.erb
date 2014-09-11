@@ -23,8 +23,14 @@
         <td><%= story.description %></td>
         <td><%= story.published_on %></td>
         <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to_edit_story(story) do %>
+        <i class='fa fa-pencil'> I</i>
+        <% end %> 
+        </td>
+        <td><%= #link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } 
+            link_to_delete_story(story)
+
+        %></td>
       </tr>
     <% end %>
   </tbody>

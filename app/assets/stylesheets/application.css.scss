@@ -22,4 +22,8 @@ header .navbar-inverse{
 	}
 }
 
+.actions a:not(:last-of-type){
+	margin-right: 5px;
+	padding-right: 3px;
+}
 

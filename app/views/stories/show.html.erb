@@ -30,5 +30,9 @@
   <%= @story.published_on %>
 </p>
 
-<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= #link_to_if current_user=@story.user, 'Edit', edit_story_path(@story) 
+link_to_edit_story do %>
+Edit 
+<% end %>
+
 <%= link_to 'Back', stories_path %>

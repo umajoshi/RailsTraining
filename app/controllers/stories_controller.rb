@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
   unless: :user_signed_in?,
   except: [:index, :show]
 
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_story, only: [:edit, :update, :destroy]
 
   # GET /stories
   # GET /stories.json
@@ -15,6 +15,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @story = Story.find(params[:id])
   end
 
   # GET /stories/new
@@ -29,7 +30,8 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.json
   def create
-    @story = Story.new(story_params)
+
+    @story = current_user.stories.create(story_params)
 
     respond_to do |format|
       if @story.save
@@ -80,11 +82,12 @@ class StoriesController < ApplicationController
     end
 
     def set_story
-      @story = Story.find(params[:id])
+      @story = current_user.stories.find(params[:id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:url, :title, :author, :user_id, :description, :published_on)
+      params.require(:story).permit(:url, :title, :author, :description, :published_on)
     end
 end
