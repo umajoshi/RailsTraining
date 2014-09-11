@@ -12,6 +12,9 @@ class StoriesController < ApplicationController
     @stories = Story.all
   end
 
+def lookup
+  render json: {exists: CanonicalURLValidator.exists?(params[:url]) }
+end
   # GET /stories/1
   # GET /stories/1.json
   def show
