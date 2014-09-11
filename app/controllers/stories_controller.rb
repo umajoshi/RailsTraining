@@ -31,7 +31,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
 
-    @story = current_user.stories.create(story_params)
+    @story = current_user.stories.build(story_params)
 
     respond_to do |format|
       if @story.save

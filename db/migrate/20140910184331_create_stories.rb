@@ -7,8 +7,7 @@ class CreateStories < ActiveRecord::Migration
       t.references :user, index: true
       t.text :description
       t.date :published_on
-
-      #t.timestamps
+      t.timestamps
     end
   end
 end

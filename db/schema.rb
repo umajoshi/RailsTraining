@@ -14,12 +14,14 @@
 ActiveRecord::Schema.define(version: 20140910184331) do
 
   create_table "stories", force: true do |t|
-    t.text    "url"
-    t.string  "title"
-    t.string  "author"
-    t.integer "user_id"
-    t.text    "description"
-    t.date    "published_on"
+    t.text     "url"
+    t.string   "title"
+    t.string   "author"
+    t.integer  "user_id"
+    t.text     "description"
+    t.date     "published_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "stories", ["user_id"], name: "index_stories_on_user_id"
